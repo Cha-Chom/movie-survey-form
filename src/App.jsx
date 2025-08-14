@@ -1,18 +1,23 @@
-import { useState } from 'react'
+import { useState } from "react";
+import SurveyForm from "./components/SurveyForm";
+import Summary from "./components/Summary";
 
-function App() {
+export default function App() {
+  const [submittedData, setSubmittedData] = useState(null);
 
+  const handleRestart = () => {
+    setSubmittedData(null);
+  };
 
   return (
-    <>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-  <h1 class="text-xl font-bold">
-    Hello world!
-  </h1>
-    </>
-  )
+    <div>
+      <h1>แบบสำรวจความคิดเห็นภาพยนตร์</h1>
+      {submittedData ? (
+        <Summary data={submittedData} onRestart={handleRestart} />
+      ) : (
+        <SurveyForm onSubmit={setSubmittedData} />
+      )}
+    </div>
+  );
 }
 
-export default App
