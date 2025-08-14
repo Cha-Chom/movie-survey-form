@@ -10,8 +10,10 @@ export default function App() {
   };
 
   return (
-    <div>
-      <h1>แบบสำรวจความคิดเห็นภาพยนตร์</h1>
+    <div className="min-h-screen bg-neutral-900 py-10 text-white">
+      <h1 className="text-4xl font-bold text-center mb-8 text-amber-400">
+      Favorite Movie Survey
+      </h1>
       {submittedData ? (
         <Summary data={submittedData} onRestart={handleRestart} />
       ) : (
@@ -20,4 +22,3 @@ export default function App() {
     </div>
   );
 }
-
